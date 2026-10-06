@@ -12,8 +12,9 @@ bag_sampling_dataset(
   bag_size = 100L,
   seed = 1234L,
   replace = TRUE,
+  replace_elt = replace,
   post_process = identity,
-  balanced = TRUE
+  balancing = TRUE
 )
 }
 \arguments{
@@ -29,11 +30,13 @@ bag_sampling_dataset(
 
 \item{seed}{set seed for random sampling}
 
-\item{replace}{a logical, if TRUE the same elements might be samples multiple time.}
+\item{replace}{a logical, if TRUE the same sample might be sampled multiple time.}
+
+\item{replace_elt}{a logical, if TRUE the same elements might be sampled multiple time.}
 
 \item{post_process}{a function to use to post_process the batches}
 
-\item{balanced}{a logical, if TRUE will generate the same number of bag for each target value}
+\item{balancing}{a grouping factor for balancing}
 }
 \description{
 Given labelled bags of instances, randomly generate new bags bag_size by random sampling random sample instances
