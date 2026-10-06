@@ -46,6 +46,6 @@ bag_sampling_dataset(
   matrix((1:1000-1)\%\%100+1,100,10),
   split(seq(100),gl(20,5)),
   gl(2,10),
-  nbag = 7L,bag_size=5L,balanced=TRUE
+  nbag = 7L,bag_size=5L,balancing=TRUE
 )[1:3]
 }

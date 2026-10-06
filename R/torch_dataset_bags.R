@@ -17,14 +17,14 @@
 #' @importFrom tibble tibble rowid_to_column
 #' @importFrom dplyr mutate inner_join select slice_sample group_by ungroup slice summarize n if_else
 #' @importFrom purrr map map2
-#' @importFrom tidyr unnest
+#' @importFrom tidyr unnest unnest_longer
 #' @export
 #' @examples
 #' bag_sampling_dataset(
 #'   matrix((1:1000-1)%%100+1,100,10),
 #'   split(seq(100),gl(20,5)),
 #'   gl(2,10),
-#'   nbag = 7L,bag_size=5L,balanced=TRUE
+#'   nbag = 7L,bag_size=5L,balancing=TRUE
 #' )[1:3]
 bag_sampling_dataset <- torch::dataset(
   name = "bag_sampling_dataset",
@@ -73,7 +73,7 @@ bag_sampling_dataset <- torch::dataset(
       unnest_longer(elements) %>%
       group_by(bag_id) %>%
       slice_sample(n=bag_size,replace=replace_elt) %>%
-      summarise(elements=list(elements)) %>%
+      summarize(elements=list(elements)) %>%
       inner_join(select(self$bags,bag_id,y,input_bag_idx),by="bag_id",relationship="one-to-one")
   },
   .length = function() {
