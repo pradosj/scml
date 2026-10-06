@@ -1,7 +1,7 @@
 Package: scml
 Type: Package
 Title: Mining Single Cell with torch
-Version: 1.11.0
+Version: 1.12.0
 Authors@R: c(
   person("Julien","Prados",email = "julien.prados@unige.ch",role=c("aut","cre")),
   person("Christian","Peralta",email = "christian.peralta@unige.ch",role="aut"),
