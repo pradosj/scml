@@ -42,7 +42,7 @@ You can install the development version of scml from [GitHub](https://github.com
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("BioinfoSupport/scml")
+devtools::install_github("pradosj/scml")
 ```
 
 ## Usage
